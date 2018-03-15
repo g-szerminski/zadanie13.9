@@ -4,19 +4,19 @@ var handlers = require('./handlers');
 
 function start() {
   function onRequest(request, response) {
-    console.log("Odebrano zapytanie.".green);
-    console.log("Zapytanie ".blue + request.url + " odebrane.".blue);
-    response.writeHead(200, {"Content-Type": "text/plain; charset=utf-8"});
+    console.log('Odebrano zapytanie.'.green);
+    console.log('Zapytanie '.blue + request.url + ' odebrane.'.blue);
+    response.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
 
     switch (request.url) {
-      case "/":
-      case "/start":
+      case '/':
+      case '/start':
         handlers.welcome(request, response);
         break;
-      case "/upload": "value", 
+      case '/upload': 'value', 
         handlers.upload(request, response);
       break;
-      case "/show":
+      case '/show':
         handlers.show(request, response);
       break;
       default:
@@ -26,7 +26,7 @@ function start() {
 
   http.createServer(onRequest).listen(9000);
 
-  console.log("Uruchomiono serwer!".green);
+  console.log('Uruchomiono serwer!'.green);
 }
 
 exports.start = start;
